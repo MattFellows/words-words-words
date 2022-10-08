@@ -1,5 +1,28 @@
-main {
-  text-align: center;
-  vertical-align: center;
-  line-height: 100vh
+body {
+  height: 100vh;
+}
+
+div.grid {
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+  height: 500px;
+  margin: auto;
+  flex-wrap: wrap;
+  border: 5px solid darkblue;
+}
+    
+div.gridletter {
+  flex-basis: 98px;
+  height: 98px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  justify-content: center;
+  border: 1px solid darkblue;
+}
+    
+div.gridletter.chosen {
+  background-color: #bbd;
 }
