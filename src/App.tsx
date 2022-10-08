@@ -8,12 +8,24 @@ export default function App() {
   const [word, setWord] = useState<string>('');
   const [chosenLetterIndexes, setChosenLetterIndexes] = useState<number[]>([]);
 
-  useEffect(() => {
+  const generateString = () => {
     let localLetters = '';
     while (localLetters.length < 25) {
       localLetters += CHARACTERS.charAt(Math.floor(Math.random() *
         CHARACTERS.length));
     }
+    return localLetters;
+  }
+
+  useEffect(() => {
+    let localLetters = generateString();
+    let numVowels = localLetters.replaceAll(/[B-DF-HJ-NP-TV-Z]/g, '').length;
+    let numConsonants = localLetters.replaceAll(/[AEIOU]/g, '').length;
+    while(numVowels < 8 || numConsonants < 15) {
+      localLetters = generateString();
+      numVowels = localLetters.replaceAll(/[B-DF-HJ-NP-TV-Z]/g, '').length;
+      numConsonants = localLetters.replaceAll(/[AEIOU]/g, '').length;
+    } 
     setLetters(localLetters)
   }, [])
 
