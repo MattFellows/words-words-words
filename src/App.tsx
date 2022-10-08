@@ -14,16 +14,17 @@ export default function App() {
     setLetters(localLetters)
   }, [])
 
-  const renderLetters = (): JSX.Element => {
+  const renderLetters = () => {
     const grid = [];
-    for (let i = 0; i < 5; i++) {
-      grid.push()
+    for (let i = 0; i < 25; i++) {
+      grid.push(<div>{letters[i]}</div>)
     }
+    return grid;
   }
 
   return (
     <main>
-      {letters}
+      {renderLetters()}
     </main>
   )
 }
