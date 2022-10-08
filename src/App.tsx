@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './App.css'
+import words from './words.json';
 
 const CHARACTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
@@ -28,7 +29,7 @@ export default function App() {
     return shuffled.slice(0, 25).reduce((prev, cur) => prev + cur);
   }
 
-  useEffect(() => {
+  const generateWantedString = () => {
     let localLetters = generateString();
     let numVowels = localLetters.replaceAll(/[B-DF-HJ-NP-TV-Z]/g, '').length;
     let numConsonants = localLetters.replaceAll(/[AEIOU]/g, '').length;
@@ -38,7 +39,11 @@ export default function App() {
       numVowels = localLetters.replaceAll(/[B-DF-HJ-NP-TV-Z]/g, '').length;
       numConsonants = localLetters.replaceAll(/[AEIOU]/g, '').length;
     } 
-    setLetters(localLetters)
+    return localLetters;
+  }
+
+  useEffect(() => {
+    setLetters(generateWantedString())
   }, [])
 
 
@@ -67,6 +72,24 @@ export default function App() {
         {renderLetters()}
       </div>
       <div>{word}</div>
+      <div onClick={() => {
+        let foundWord = false;
+        (words as any).words.forEach((w: string) => {
+          if (word.toLowerCase() === w.toLowerCase()) {
+            alert('Its a word')
+            setWord('');
+            setChosenLetterIndexes([])
+            setLetters(generateWantedString())
+            foundWord = true;
+          }
+        })
+        if (!foundWord) {
+          alert('Its not a word that I know')
+          setWord('');
+          setChosenLetterIndexes([])
+          setLetters(generateWantedString())
+        }
+      }}>Submit</div>
     </>
   )
 }
