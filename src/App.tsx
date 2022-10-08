@@ -14,7 +14,7 @@ export default function App() {
     setLetters(localLetters)
   }, [])
 
-  const renderLetters = () => {
+  const renderLetters = (): JSX.Element => {
     const grid = [];
     for (let i = 0; i < 5; i++) {
       grid.push()
