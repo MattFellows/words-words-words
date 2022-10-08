@@ -56,7 +56,7 @@ export default function App() {
           addLetterToWord(letters[i])
           setChosenLetterIndexes(newIndexes);
         }
-      }} className={'gridletter' + (chosenLetterIndexes.filter(l => l === i).length > 0 ? ' chosen' : '')}>{letters[i]}</div>)
+      }} key={`gridletter${i}-${letters[i]}`} className={'gridletter' + (chosenLetterIndexes.filter(l => l === i).length > 0 ? ' chosen' : '')}>{letters[i]}</div>)
     }
     return grid;
   }
