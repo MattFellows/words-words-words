@@ -5,16 +5,16 @@ body {
 div.grid {
   display: flex;
   flex-direction: row;
-  width: 70vw;
-  height: 70vw;
+  width: min(70vw, 70vh);
+  height: min(70vw, 70vh);
   margin: auto;
   flex-wrap: wrap;
   border: 5px solid darkblue;
 }
     
 div.gridletter {
-  width: calc(14vw - 2px);
-  height: calc(14vw - 2px);
+  width: calc(min(14vw, 14vh) - 2px);
+  height: calc(min(14vw, 14vh) - 2px);
   display: flex;
   align-items: center;
   justify-items: center;
