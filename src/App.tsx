@@ -131,7 +131,7 @@ export default function App() {
             }
           })
           setFinished(true)
-        }}>Submit</button>
+        }}>Submit Answer</button>
       </div>
     </>
   )
