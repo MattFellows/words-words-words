@@ -11,6 +11,16 @@ div.grid {
   flex-wrap: wrap;
   border: 5px solid darkblue;
 }
+
+div.controls {
+  padding-top: 1em;
+  display: flex;
+  flex-direction: column;
+  width: min(80vw, 80vh);
+  margin: auto;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
     
 div.gridletter {
   width: calc(min(16vw, 16vh) - 2px);

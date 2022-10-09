@@ -120,17 +120,19 @@ export default function App() {
           {finished && renderFinished()}
         </>
       </div>
-      <div>{word}</div>
-      <button onClick={async () => {
-        let foundWord = false;
-        (words as any).words.forEach((w: string) => {
-          if (word.toLowerCase() === w.toLowerCase()) {           
-            setSuccess(true)
-            return
-          }
-        })
-        setFinished(true)
-      }}>Submit</button>
+      <div className='controls'>
+        <div style={{height: '1em', marginBottom: '1em'}}>{word}</div>
+        <button onClick={async () => {
+          let foundWord = false;
+          (words as any).words.forEach((w: string) => {
+            if (word.toLowerCase() === w.toLowerCase()) {           
+              setSuccess(true)
+              return
+            }
+          })
+          setFinished(true)
+        }}>Submit</button>
+      </div>
     </>
   )
 }
